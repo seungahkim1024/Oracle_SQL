@@ -6,6 +6,22 @@
 --[ commission_pct = 커미션비율 ] [ manager_id = 상사아이디]
 --[ department_id = 부서코드]
 
+desc employees;
+--[컬럼명들이 다 뜬다]
+
+create view emp as 
+select employees_id eid,
+first_name fname,
+last_name lname,
+email,
+phone_number phone,
+hire_date hdate,
+jop_id jid,
+salary sal,
+commission_pct comm,
+manager_id mid,
+department_id did from employees;
+
 -- *******
 -- 문제001. 
 -- HR 스키마 테이블을 모두 출력?
@@ -66,7 +82,7 @@ where salary>=12000;
 -- *******
 select employee_id, first_name, department_id, salary
 from EMPLOYEES
-where salary>=1500 and salary<=2500;
+where salary between 1500 and 2500;
 
 -- *******
 -- 문제009.
@@ -84,4 +100,4 @@ where salary between 1500 and 2500;
 -- *******
 select first_name, employee_id, hire_date
 from EMPLOYEES
-where hire_date >= '2005/01/01' and hire_date <= '2005/12/31'; 
+where hire_date between 2005/01/01 and 2005/12/31; 

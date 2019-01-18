@@ -6,6 +6,8 @@
 --[ commission_pct = 커미션비율 ] [ manager_id = 상사아이디]
 --[ department_id = 부서코드]
 
+
+
 -- *******
 -- 문제011. 
 -- 커미션을 받지 못하는 직원의 이름,업무코드,급여,커미션비율을 조회
@@ -65,3 +67,33 @@ where email not like 'A%';
 select first_name, last_name
 from Employees
 where last_name like '_ee%';
+
+
+-- *******
+-- 문제018
+ -- 최저임금이 10000불 이상인 업무 의 상세 내역을 표시한다
+-- *******
+
+
+select job_id, job_title, min_salary, max_salary
+from jobs
+where min_salary >= 10000;
+
+-- *******************
+-- [문제19]
+-- 2002년부터 2005년까지 
+-- 가입한 직원의 이름과 가입 일자를 표시한다.
+-- *******************
+select first_name, hire_date
+from Employees
+where hire_date between '2002/01/01' and '2005/12/31'
+order by hire_date;
+
+-- *******************
+-- [문제020]
+-- IT Programmer 또는 Sales Man인 
+-- 직원의 이름, 입사일, 업무코드 표시.
+-- *******************
+select first_name 이름, hire_date 입사일 , job_id 업무코드
+from employees
+where JOB_ID IN('IT_PROG','SA_MAN');
