@@ -9,7 +9,7 @@ country varchar2(15) not null
 
 create table Employees(
 employee_id varchar2(15) primary key,
-last_name varchar2(15) not null,
+manager varchar2(15) not null,
 first_name varchar2(15) not null,
 birth_date varchar2(15) not null unique,
 photo varchar2(15),
@@ -92,5 +92,7 @@ references Products(product_id),
 quantity number default 1
 );
 
-
 select * from tab;
+
+ALTER TABLE Employees
+RENAME COLUMN last_name TO MANAGER;
